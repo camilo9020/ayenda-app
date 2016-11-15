@@ -1,0 +1,10 @@
+<%= @hotel.name %>
+
+<%= @hotel.address %>
+
+<%= @hotel.rank %>
+
+
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_hotel_path %>
+<%= link_to 'Delete', hotel_path, method: :delete, data: {confirm: 'Are you sure?'} %>
