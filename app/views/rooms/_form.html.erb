@@ -1,0 +1,9 @@
+<%= simple_form_for @room do |f| %>
+  <%= f.collection_select :hotel_id, Hotel.all, :id, :name, {prompt: 'Choose a hotel'} %>
+  <%= f.input :room_type, placeholder: 'Single/Double/Penthouse' %>
+  <%= f.input :capacity, placeholder: 'Number of persons' %>
+  <%= f.input :price, placeholder: 'USD/DAY' %>
+  <%= f.input :available%>
+  <%= f.submit %>
+
+<% end %>

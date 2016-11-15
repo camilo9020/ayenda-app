@@ -1,10 +1,43 @@
-<%= @hotel.name %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1><%= @hotel.name %></h1>
+      </div>
+      <div class="panel-body">
+        <p>Address: <%= @hotel.address %></p>
+        <p>Stars: <%= @hotel.rank %></p>
+      </div>
+      <div class="panel-footer">
+        <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+        <%= link_to 'Edit', edit_hotel_path, class: 'btn btn-default' %>
+        <%= link_to 'Delete', hotel_path, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default' %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= @hotel.address %>
+<div class="row">
+  <% @hotel.rooms.each do |room| %>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>Type: <%= room.room_type %></h1>
+        <p>id: <%= room.id %></p>
+      </div>
+      <div class="panel-body">
+        <p>Capacity:<%= room.capacity %></p>
+        <p>Price/day: <%= room.price %></p>
+        <p>Available:<%= room.available %></p>
+      </div>
+      <div class="panel-footer">
+        <%= link_to 'Edit', edit_room_path, class: 'btn btn-default' %>
+        <%= link_to 'Delete', room_path(room), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 
-<%= @hotel.rank %>
 
 
-<%= link_to 'Back', root_path %>
-<%= link_to 'Edit', edit_hotel_path %>
-<%= link_to 'Delete', hotel_path, method: :delete, data: {confirm: 'Are you sure?'} %>
